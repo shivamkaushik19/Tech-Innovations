@@ -1,0 +1,1005 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+}
+nav{
+  
+   width: 100%;
+   height: 70px;
+   background-color: white;
+   position: fixed;
+   z-index: 2000;
+   top: 0;   
+   font-family: 'Poppins', sans-serif;
+ }
+
+nav .wrapper{
+  position: relative;
+  max-width: 1300px;
+  padding: 0px 30px;
+  height: 70px;
+  line-height: 70px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper .logo a{
+  color: black;
+  font-size: 25px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.wrapper .nav-links{
+  display: inline-flex;
+}
+.nav-links li{
+  list-style: none;
+}
+.nav-links li a{
+  color:black;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 11px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.nav-links li a:hover{
+background-color:  rgb(236, 111, 236);;
+}
+.nav-links .mobile-item{
+  display: none;
+}
+
+.nav-links li:hover .drop-menu,
+.nav-links li:hover .mega-box{
+  transition: all 0.3s ease;
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.mega-box{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 0 10px;
+  top: 85px;
+  opacity: 0;
+  visibility: hidden;
+}
+.mega-box .content{
+  background:#202020;
+  padding: 34px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+.mega-box .content .row{
+  width: calc(25% - 30px);
+  line-height: 50px;
+}
+.content {
+  width: 100%;
+  height: 100%;
+  gap: 20px;
+}
+.content .row header{
+  color:#d9d9d9;
+  font-size: 18px;
+  font-weight: 500;
+}
+.content .row .mega-links{
+  margin-left: -50px;
+  
+}
+.row .mega-links li{
+  padding: 0 37px;
+}
+.row .mega-links li a{
+  padding: 0px;
+  padding: 0 10px;
+  color: #d9d9d9;
+  font-size: 13.7px;
+  display: block;
+}
+
+.wrapper .btn{
+   color: black;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+.wrapper .btn.close-btn{
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  color: white;
+}
+
+@media screen and (max-width: 1127px) {
+  .wrapper .btn{
+    display: block;
+  }
+  .wrapper .nav-links{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    max-width: 360px;
+    top: 0;
+    left: -100%;
+    background: #242526;
+    display: block;
+    padding: 50px 10px;
+    line-height: 50px;
+    overflow-y: auto;
+    box-shadow: 0px 15px 15px rgba(0,0,0,0.18);
+    transition: all 0.3s ease;
+  }
+  
+  .nav-links li a:hover{
+    background-color: transparent;
+    }
+  /* custom scroll bar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+   background: #242526; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3A3B3C;
+  }
+  #menu-btn:checked ~ .nav-links{
+    left: 0%;
+  }
+  #menu-btn:checked ~ .btn.menu-btn{
+    display: none;
+  }
+  #close-btn:checked ~ .btn.menu-btn{
+    display: block;
+  }
+  .nav-links li{
+    margin: 15px 10px;
+    text-align: left;
+  }
+  .row header{
+    text-align: left;
+  }
+  .nav-links li a{
+    padding: 0 20px;
+    display: block;
+    font-size: 20px;
+    color: white;
+    text-align: left;
+  }
+  #showDrop:checked ~ .drop-menu,
+  #showMega:checked ~ .mega-box{
+    max-height: 100%;
+  }
+  .nav-links .desktop-item{
+    display: none;
+  }
+  .nav-links .mobile-item{
+    display: block;
+    color: #f2f2f2;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .nav-links .mobile-item:hover{
+    background: #3A3B3C;
+  }
+  .drop-menu li{
+    margin: 0;
+  }
+  .drop-menu li a{
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  .mega-box{
+    position: static;
+    top: 65px;
+    opacity: 1;
+    visibility: visible;
+    padding: 0 20px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .mega-box .content{
+    box-shadow: none;
+    flex-direction: column;
+    padding: 20px 20px 0 20px;
+  }
+  .mega-box .content .row{
+    width: 100%;
+    margin-bottom: 15px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .mega-box .content .row:nth-child(1),
+  .mega-box .content .row:nth-child(2){
+    border-top: 0px;
+  }
+  .content .row .mega-links{
+    border-left: 0px;
+    padding-left: 15px;
+  }
+  .row .mega-links li{
+    margin: 0;
+  }
+  .content .row header{
+    font-size: 19px;
+  }
+}
+nav input{
+  display: none;
+}
+
+.body-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  padding: 0 30px;
+}
+.body-text div{
+  font-size: 45px;
+  font-weight: 600;
+}
+
+.wp_outer {
+  position: fixed;
+  top: auto; 
+  bottom: 15px;
+  right: 22px;
+  z-index: 9999;
+}
+
+.wpicons {
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+}
+
+.botpenguin-right {
+  bottom: 80px !important; 
+  right: 20px !important;
+  position: fixed !important;
+  z-index: 9999; 
+}
+
+/* Styling for medium screens */
+@media screen and (max-width: 768px) {
+  .wp_outer {
+    bottom: 25px;
+    right: 20px;
+  }
+
+  .wpicons {
+    width: 50px;
+    height: 50px;
+  }
+
+  .botpenguin-right {
+    bottom: 90px !important; 
+    right: 20px !important;
+  }
+}
+
+/* Styling for small screens */
+@media screen and (max-width: 600px) {
+  .wp_outer {
+    bottom: 25px;
+    right: 28px;
+  }
+  .wpicons {
+    width: 45px;
+    height: 45px;
+  }
+
+  .botpenguin-right {
+    bottom: 80px !important; 
+    right: 20px !important;
+  }
+}
+
+
+/* the banner is starting */
+  .banner {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Responsive Image */
+.banner {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 5%;
+}
+
+/* Responsive Image with Fixed Height */
+ .bannerimg {
+  width: 100%;
+  height: 590px;
+  object-fit: cover;
+  display: block; /
+} 
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .bannerimg {
+      height: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bannerimg {
+      height: 500px;
+  }
+}
+
+
+.banner {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 5%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive Image with Fixed Height */
+.bannerimg {
+  width: 100%;
+  height: 580px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Center the content over the image */
+.outercontent {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 40px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.innercontent {
+  color: white;
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5); /* Optional: Add background for better readability */
+  border-radius: 10px;
+
+   font-family: 'Poppins', sans-serif;
+
+  
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bannerimg {
+      height: 500px;
+  }
+  .innercontent {
+      padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bannerimg {
+      height: 400px;
+      margin-top: 3%;
+  }
+  .innercontent {
+      padding: 10px;
+  }
+}
+
+/* the mobile app development  */
+
+.mobile-application-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+  margin-top: 3%;
+}
+
+.heading-mobile-application {
+  margin-top: 7%;
+  text-align: center;
+}
+
+.mobile-application-left-content {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 1;
+}
+
+.mobile-application-right-content {
+  flex: 1;
+  min-width: 300px;
+  padding-left: 20px;
+  padding-right: 20px;
+  order: 2;
+}
+
+.mobile-application-main-img {
+  width: 100%;
+  height: 530px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.mobile-application-heading {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.mobile-application-description {
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+@media (max-width: 974px) {
+  .mobile-application-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .mobile-application-left-content,
+  .mobile-application-right-content {
+      width: 100%;
+      min-width: unset;
+      padding: 10px;
+  }
+
+  .mobile-application-left-content {
+      order: 1; /* Ensures image is first on smaller screens */
+  }
+
+  .mobile-application-right-content {
+      order: 2; /* Ensures content comes after the image on smaller screens */
+  }
+
+  .mobile-application-main-img {
+      max-width: 100%;
+      height: auto;
+  }
+
+  .mobile-application-heading {
+      font-size: 1.1em;
+  }
+
+  .mobile-application-description {
+      font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mobile-application-heading {
+      font-size: 1em;
+  }
+
+  .mobile-application-description {
+      font-size: 12px;
+  }
+
+  .mobile-application-left-content,
+  .mobile-application-right-content {
+      padding: 5px;
+  }
+}
+/* the android is started from here */
+.android-development-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+  margin-top: 3%;
+}
+
+.heading-android-development {
+  margin-top: 7%;
+  text-align: center;
+}
+
+.android-development-left-content {
+  flex: 1;
+  min-width: 300px;
+  padding-left: 20px;
+  padding-right: 20px;
+  order: 1; /* Default order for larger screens */
+}
+
+.android-development-right-content {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 2; /* Default order for larger screens */
+}
+
+.android-development-main-img {
+  width: 100%;
+  height: 530px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.android-development-heading {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.android-development-description {
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+@media (max-width: 974px) {
+  .android-development-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .android-development-left-content,
+  .android-development-right-content {
+    width: 100%;
+    min-width: unset;
+    padding: 10px;
+  }
+
+  .android-development-left-content {
+    order: 2; /* Ensures content is after the image on smaller screens */
+  }
+
+  .android-development-right-content {
+    order: 1; /* Ensures image comes first on smaller screens */
+  }
+
+  .android-development-main-img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .android-development-description {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .heading-android-development {
+    font-size: 25px;
+    width: 93%;
+    text-align: center;
+  }
+
+  .android-development-description {
+    font-size: 12px;
+  }
+
+  .android-development-left-content,
+  .android-development-right-content {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 380px) {
+  .heading-android-development {
+    font-size: 19px;
+    width: 95%;
+  }
+}
+/* the ios development  */
+.ios-development-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+  margin-top: 3%;
+}
+
+.heading-ios-development {
+  margin-top: 7%;
+  text-align: center;
+}
+
+.ios-development-left-content {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 1; /* Default order for larger screens */
+}
+
+.ios-development-right-content {
+  flex: 1;
+  min-width: 300px;
+  padding-left: 20px;
+  padding-right: 20px;
+  order: 2; /* Default order for larger screens */
+}
+
+.ios-development-main-img {
+  width: 100%;
+  height: 530px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.ios-development-heading {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.ios-development-description {
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+@media (max-width: 974px) {
+  .ios-development-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ios-development-left-content,
+  .ios-development-right-content {
+    width: 100%;
+    min-width: unset;
+    padding: 10px;
+  }
+
+  .ios-development-left-content {
+    order: 1; /* Ensures image comes first on smaller screens */
+  }
+
+  .ios-development-right-content {
+    order: 2; /* Ensures content comes below the image on smaller screens */
+  }
+
+  .ios-development-main-img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .ios-development-description {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .heading-ios-development {
+    font-size: 25px;
+    width: 93%;
+    text-align: center;
+  }
+
+  .ios-development-description {
+    font-size: 12px;
+  }
+
+  .ios-development-left-content,
+  .ios-development-right-content {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 380px) {
+  .heading-ios-development {
+    font-size: 19px;
+    width: 95%;
+  }
+}
+/* the react native */
+.react-native-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+  margin-top: 3%;
+}
+
+.heading-react-native {
+  margin-top: 7%;
+  text-align: center;
+}
+
+.react-native-left-content {
+  flex: 1;
+  min-width: 300px;
+  padding-left: 20px;
+  padding-right: 20px;
+  order: 1; /* Content on the left side for larger screens */
+}
+
+.react-native-right-content {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 2; /* Image on the right side for larger screens */
+}
+
+.react-native-main-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.react-native-description {
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+@media (max-width: 974px) {
+  .react-native-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .react-native-left-content,
+  .react-native-right-content {
+    width: 100%;
+    min-width: unset;
+    padding: 10px;
+  }
+
+  .react-native-left-content {
+    order: 2; /* Content appears after the image on smaller screens */
+  }
+
+  .react-native-right-content {
+    order: 1; /* Image appears first on smaller screens */
+  }
+
+  .react-native-main-img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .react-native-description {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .heading-react-native {
+    font-size: 25px;
+    width: 93%;
+    text-align: center;
+  }
+
+  .react-native-description {
+    font-size: 12px;
+  }
+
+  .react-native-left-content,
+  .react-native-right-content {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 380px) {
+  .heading-react-native {
+    font-size: 19px;
+    width: 95%;
+  }
+}
+/* contact */
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.contact-form-container,
+.contact-info-container {
+  flex: 1;
+  min-width: 270px;
+  padding: 50px;
+  
+  border-radius: 10px;
+
+}
+
+.contact-form-heading,
+.contact-info-heading {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.contact-form,
+.contact-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 12px;
+  display: none;
+}
+
+.form-submit {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-submit:hover {
+  background-color: #0056b3;
+}
+
+.contact-info-description {
+  font-size: 17px;
+  line-height: 1.6;
+
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-form-container,
+  .contact-info-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+  }
+}
+
+
+/* the footer is started */
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.footerline{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #1b1b1b;
+    padding: 70px 0;
+    margin-top: 7%;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+   font-family: 'Poppins', sans-serif;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: rgb(216, 69, 216);
+	height: 2px;
+	box-sizing: border-box;
+	width: 30%;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}}
+
+@media(max-width: 572px){
+  .footer-col{
+    width: 100%;
+}}
