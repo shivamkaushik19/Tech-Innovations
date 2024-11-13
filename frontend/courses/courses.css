@@ -743,7 +743,7 @@ nav input{
 
 
 
-.container {
+.containers{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1044,7 +1044,7 @@ height: 460px;
 
 
 /* the footer is started */
-.containers{
+.container{
 	max-width: 1170px;
 	margin:auto;
   

@@ -1,10 +1,24 @@
-const express=require("express")
 
-const router=express.Router();
+const express = require('express');
+const router = express.Router();
+const Contact = require('../model/landingcontact');
 
-const posttodo=require("../controllers/user.todopost.controller")
+router.post('/', async (req, res) => {
+  const { name, email, phone, message } = req.body;
 
-router.post("/posttodo",posttodo)
+  try {
+    const newContact = new Contact({
+      name,
+      email,
+      phone,
+      message,
+    });
 
-module.exports=router
+    await newContact.save();
+    res.status(200).json({ message: 'Form submitted successfully' });
+  } catch (err) {
+    res.status(500).json({ error: 'An error occurred while saving data' });
+  }
+});
 
+module.exports = router;

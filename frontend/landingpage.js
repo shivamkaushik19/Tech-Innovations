@@ -35,13 +35,13 @@ document.getElementById('contactForm').addEventListener('submit', function (even
 
     // Message validation: must contain at least 20 words
     const message = document.getElementById('message').value;
-    if (message.trim().split(' ').length < 20) {
-        isValid = false;
-        document.getElementById('messageError').innerText = 'Message should contain at least 20 words.';
-    }
+    
 
     if (isValid) {
-        // If all fields are valid, submit the form
+        // If all fields are valid, reset the form
+        document.getElementById('contactForm').reset();
+
+        // Redirect to the thank you page
         window.location.href = "/frontend/thankyou/thank.html";
     }
 });
@@ -199,3 +199,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showItem(currentIndex);
 });
+
+
+// the backend start
+document.getElementById('contactForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+  
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
+  
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, phone, message }),
+      });
+  
+      const result = await response.json();
+      if (response.ok) {
+        alert(result.message);
+      } else {
+        alert('Error: ' + result.error);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  });
+  
+
+
+
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Select all FAQ questions
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', function () {
+        const answerId = this.getAttribute('data-answer');
+        const answer = document.getElementById(answerId);
+
+        // Toggle the active state for the clicked question
+        this.classList.toggle('active');
+
+        // Show or hide the answer
+        if (answer.style.display === 'block') {
+          answer.style.display = 'none';
+        } else {
+          answer.style.display = 'block';
+        }
+      });
+    });
+  });

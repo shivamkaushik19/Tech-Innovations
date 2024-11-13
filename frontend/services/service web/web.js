@@ -53,3 +53,36 @@ function validateForm(event) {
 
     return valid;
 }
+
+
+
+
+
+
+document.getElementById('contact-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+  
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
+  
+    try {
+      const response = await fetch('http://localhost:5000/api/services', { 
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, phone, message }), // Send form data
+      });
+  
+      const result = await response.json();
+      if (response.ok) {
+        alert(result.message);
+      } else {
+        alert('Error: ' + result.error);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+});

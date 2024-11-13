@@ -37,15 +37,25 @@ function validateForm() {
     // Message validation
     const message = document.getElementById('message').value;
     const messageError = document.getElementById('message-error');
-    if (message.split(' ').length < 20) {
+    if (message.split(' ').length=0) {
         messageError.style.display = 'block';
         valid = false;
     } else {
         messageError.style.display = 'none';
     }
+
     if (valid) {
-        window.location.href = "/frontend/thankyou/thank.html" ; // Replace "thankyou.html" with your actual thank you page URL
+        // Clear the form fields (null the data)
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('message').value = '';
+
+        // Redirect to the thank you page
+        window.location.href = "/frontend/thankyou/thank.html";  URL
     }
 
     return valid;
 }
+
+

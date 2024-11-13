@@ -1,21 +1,20 @@
 
 function validateForm(event) {
-    // Prevent the default form submission
+   
     event.preventDefault();
   
-    // Clear previous error messages
+    
     document.getElementById('name-error').innerText = '';
     document.getElementById('email-error').innerText = '';
     document.getElementById('message-error').innerText = '';
   
-    // Get the form fields
+    
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
   
     let isValid = true;
   
-    // Regular expression for email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     // Regular expression for name validation (no digits)
     const nameRegex = /^[^\d]+$/;
@@ -42,22 +41,54 @@ function validateForm(event) {
         isValid = false;
     }
   
-    // Validate message (at least 20 words)
     const messageWords = message.split(/\s+/);
     if (message === "") {
         document.getElementById('message-error').innerText = 'Please enter a message.';
         isValid = false;
-    } else if (messageWords.length < 20) {
-        document.getElementById('message-error').innerText = 'Message should contain at least 20 words.';
-        isValid = false;
     }
-  
-    // If all fields are valid, redirect to the thank you page
+    
+    
     if (isValid) {
-        window.location.href = "/frontend/thankyou/thank.html"; // Ensure this path is correct
+        
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('message').value = '';
+        
+  
+        window.location.href = "/frontend/thankyou/thank.html"; 
     }
     
     // Return the validation status
     return isValid;
-  }
+}
+
   
+// the for the backend
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('contact-form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+    
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+    
+        try {
+            const response = await fetch('http://localhost:5000/api/GetInTouch', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, message }),
+            });
+    
+            const result = await response.json();
+            if (response.ok) {
+                alert(result.message);
+            } else {
+                alert('Error: ' + result.error);
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+        }
+    });
+});

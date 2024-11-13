@@ -1455,3 +1455,15 @@ ul{
 
  
 }
+
+
+
+
+
+.faq-answer {
+  display: none; /* Hide all answers initially */
+}
+
+.faq-question.active {
+  font-weight: bold; /* Style the active question */
+}
