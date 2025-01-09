@@ -603,6 +603,8 @@ nav input{
   background-color: white;
   padding: 40px 20px 5px 20px;
   font-family: calibri;
+  
+ 
 }
 .lower_text {
   margin-top: 6%;
@@ -621,34 +623,24 @@ nav input{
 .talk:hover{
   background-color: rgb(255, 115, 255);
 
-}
-
-.open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-}
-.outerpop{
- 
-  width: 100%;
-  position: absolute;
-  margin-top: 4%;
-
 
 }
-.innerpop{
-  width: 100%;
-  display: flex;
-  justify-content: center;
+@media screen and (max-width: 1203px) {
+  .lower_card{
+    width: 60%;
+  }
 }
-
+@media screen and (max-width: 509px) {
+  .lower_card{
+    width: 80%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .lower_card{
+    width: 98%;
+    margin-top: 5%;
+  }
+}
 /* The popup form - hidden by default */
 /* Popup form */
 
